@@ -36,6 +36,7 @@ cards.forEach(function(card){
   deckFragment.appendChild(randomCard);
 });
 
+document.querySelector('.deck').appendChild(deckFragment);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
