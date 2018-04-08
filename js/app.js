@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const cards = [
+let cards = [
   'fa fa-diamond',
   'fa fa-diamond',
   'fa fa-paper-plane-o',
@@ -28,6 +28,13 @@ const cards = [
  */
 
 const deckFragment = document.createDocumentFragment();
+
+cards.forEach(function(card){
+  const randomCard = document.createElement('li');
+  randomCard.classList.add('card');
+  randomCard.innerHTML('<i class="' + card + '"</i>');
+  deckFragment.appendChild(randomCard);
+});
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
