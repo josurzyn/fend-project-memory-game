@@ -29,15 +29,15 @@ let cards = [
 
 const deckFragment = document.createDocumentFragment();
 
-cards.forEach(function(card){
-  const randomCard = document.createElement('li');
-  randomCard.classList.add('card');
-  randomCard.innerHTML('<i class="' + card + '"</i>');
-  deckFragment.appendChild(randomCard);
-});
-
-document.querySelector('.deck').appendChild(deckFragment);
-
+function displayCards(){
+  cards.forEach(function(card){
+    const randomCard = document.createElement('li');
+    randomCard.classList.add('card');
+    randomCard.innerHTML = "<i class=" + card + "</i>";
+    deckFragment.appendChild(randomCard);
+  });
+  document.querySelector('.deck').appendChild(deckFragment);
+};
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
