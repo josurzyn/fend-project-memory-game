@@ -30,6 +30,7 @@ let cards = [
 const deckFragment = document.createDocumentFragment();
 
 function displayCards(){
+  shuffle(cards);
   cards.forEach(function(card){
     const randomCard = document.createElement('li');
     randomCard.classList.add('card');
