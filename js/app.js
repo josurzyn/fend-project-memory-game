@@ -36,8 +36,15 @@ function displayCards(){
     randomCard.innerHTML = "<i class=" + card + "</i>";
     deckFragment.appendChild(randomCard);
   });
+    /*remove current deck*/
+  const currentDeck = document.querySelector('.deck');
+  while (currentDeck.firstChild) {
+  currentDeck.removeChild(currentDeck.firstChild);
+  }
+  /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
 };
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
