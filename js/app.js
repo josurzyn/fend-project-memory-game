@@ -2,22 +2,22 @@
  * Create a list that holds all of your cards
  */
 let cards = [
-  'fa fa-diamond',
-  'fa fa-diamond',
-  'fa fa-paper-plane-o',
-  'fa fa-paper-plane-o',
-  'fa fa-anchor',
-  'fa fa-anchor',
-  'fa fa-bolt',
-  'fa fa-bolt',
-  'fa fa-cube',
-  'fa fa-cube',
-  'fa fa-leaf',
-  'fa fa-leaf',
-  'fa fa-bicycle',
-  'fa fa-bicycle',
-  'fa fa-bomb',
-  'fa fa-bomb',
+  'diamond',
+  'diamond',
+  'paper-plane-o',
+  'paper-plane-o',
+  'anchor',
+  'anchor',
+  'bolt',
+  'bolt',
+  'cube',
+  'cube',
+  'leaf',
+  'leaf',
+  'bicycle',
+  'bicycle',
+  'bomb',
+  'bomb',
 ];
 
 const deck = document.querySelectorAll('.card');
@@ -77,6 +77,6 @@ function shuffle(array) {
 
 /* event listener that turns cards on click */
 
-deck.forEach(function(card){
+/*deck.forEach(function(card){
   card.addEventListener('click', function(){card.classList.add('open', 'show')});
-});
+});*/
