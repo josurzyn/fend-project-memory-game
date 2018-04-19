@@ -20,7 +20,8 @@ let cards = [
   'bomb',
 ];
 
-const deck = document.querySelectorAll('.card');
+let deck = document.querySelectorAll('.card');
+let openCards = [];
 
 /*
  * Display the cards on the page
@@ -77,6 +78,21 @@ function shuffle(array) {
 
 /* event listener that turns cards on click */
 
-/*deck.forEach(function(card){
-  card.addEventListener('click', function(){card.classList.add('open', 'show')});
-});*/
+/* Attempt using selecting deck and forEach loop*/
+function turnCards(){
+  deck.forEach(function(card){
+    card.addEventListener('click', function(){
+      card.classList.add('open', 'show')
+      });
+    })
+  };
+
+/* Attempt using original cards array and for loop
+function turnCards() {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function(){
+      this.classList.add('open', 'show');
+      openCards.push(cards[i]);
+    })
+  }
+};*/
