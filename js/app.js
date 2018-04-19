@@ -20,6 +20,8 @@ let cards = [
   'fa fa-bomb',
 ];
 
+const deck = document.querySelectorAll('.card');
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -75,8 +77,6 @@ function shuffle(array) {
 
 /* event listener that turns cards on click */
 
-const turnCards = document.querySelectorAll('.card');
-
-turnCards.forEach(function(card){
+deck.forEach(function(card){
   card.addEventListener('click', function(){card.classList.add('open', 'show')});
 });
