@@ -88,7 +88,7 @@ function turnCards(){
     })
   };*/
 
-/* Attempt using original cards array and for loop*/
+/* Event listener to turn cards and add to open list */
 function turnCards() {
   for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
@@ -98,6 +98,7 @@ function turnCards() {
   }
 };
 
+/* Check for card match */
 function matchTest(){
     if (openCards.length == 2){
         if (openCards[0].firstChild.className == openCards[1].firstChild.className){
@@ -108,6 +109,8 @@ function matchTest(){
     }
 };
 
+
+/* Lock cards in matched position */
 function match() {
   openCards[0].classList.remove('open', 'show');
   openCards[0].classList.add('match');
@@ -115,6 +118,7 @@ function match() {
   openCards[1].classList.add('match');
 };
 
+/* Turn cards back over */
 function noMatch() {
   openCards[0].classList.remove('open', 'show');
   openCards[1].classList.remove('open', 'show');
