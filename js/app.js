@@ -24,6 +24,7 @@ let deck = document.getElementsByClassName('card');
 let openCards = [];
 let displayMoves = document.querySelector('.moves');
 let moves = 0;
+let matches = 0;
 
 /*
  * Display the cards on the page
@@ -42,11 +43,8 @@ function displayCards(){
     randomCard.innerHTML = '<i class="fa fa-' + card + '"</i>';
     deckFragment.appendChild(randomCard);
   });
-    /*remove current deck*/
-  const currentDeck = document.querySelector('.deck');
-  while (currentDeck.firstChild) {
-  currentDeck.removeChild(currentDeck.firstChild);
-  }
+    /*remove current deck */
+  removeDeck();
   /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
@@ -119,6 +117,7 @@ function match() {
   openCards[0].classList.add('match');
   openCards[1].classList.toggle('match');
   openCards[1].classList.add('match');
+  matches += 1;
 };
 
 /* Turn cards back over */
@@ -127,11 +126,20 @@ function noMatch() {
   openCards[1].classList.remove('open', 'show');
 };
 
+/* Count and display moves */
 function countMove() {
   moves += 1;
   if (moves == 1){
     displayMoves.innerHTML= moves + " Move";
   } else {
     displayMoves.innerHTML = moves + " Moves";
+  }
+};
+
+/* remove currently displayed deck */
+function removeDeck(){
+  const currentDeck = document.querySelector('.deck');
+  while (currentDeck.firstChild) {
+  currentDeck.removeChild(currentDeck.firstChild);
   }
 };
