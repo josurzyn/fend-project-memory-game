@@ -22,6 +22,8 @@ let cards = [
 
 let deck = document.getElementsByClassName('card');
 let openCards = [];
+let displayMoves = document.querySelector('.moves');
+let moves = 0;
 
 /*
  * Display the cards on the page
@@ -106,6 +108,7 @@ function matchTest(){
         } else {
           noMatch();
         } openCards.splice(0, 2);
+        countMove();
     }
 };
 
@@ -122,4 +125,13 @@ function match() {
 function noMatch() {
   openCards[0].classList.remove('open', 'show');
   openCards[1].classList.remove('open', 'show');
+};
+
+function countMove() {
+  moves += 1;
+  if (moves == 1){
+    displayMoves.innerHTML= moves + " Move";
+  } else {
+    displayMoves.innerHTML = moves + " Moves";
+  }
 };
