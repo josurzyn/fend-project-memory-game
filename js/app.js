@@ -37,7 +37,7 @@ function displayCards(){
   cards.forEach(function(card){
     const randomCard = document.createElement('li');
     randomCard.classList.add('card');
-    randomCard.innerHTML = "<i class=" + card + "</i>";
+    randomCard.innerHTML = '<i class="fa fa-' + card + '"</i>';
     deckFragment.appendChild(randomCard);
   });
     /*remove current deck*/
