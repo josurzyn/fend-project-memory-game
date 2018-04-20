@@ -93,7 +93,7 @@ function turnCards() {
   for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
-      openCards.push(deck[i].children);
+      openCards.push(deck[i].firstChild.className);
     })
   }
 };
