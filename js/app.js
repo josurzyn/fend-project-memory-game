@@ -47,6 +47,7 @@ function displayCards(){
   }
   /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
+  turnCards();
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -92,7 +93,7 @@ function turnCards() {
   for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
-      openCards.push(deck[i]);
+      openCards.push(deck[i].children);
     })
   }
 };
