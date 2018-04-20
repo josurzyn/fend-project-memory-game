@@ -93,7 +93,19 @@ function turnCards() {
   for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
-      openCards.push(deck[i].firstChild.className);
+      openCards.push(deck[i]);
     })
   }
+};
+
+function matchTest(){
+    if (openCards.length == 2){
+        if (openCards[0].firstChild.className == openCards[1].firstChild.className){
+            openCards[0].classList.remove('open', 'show'); openCards[0].classList.add('match');
+            openCards[1].classList.toggle('match'); openCards[1].classList.add('match');
+        } else {
+            openCards[0].classList.remove('open', 'show');
+            openCards[1].classList.remove('open', 'show');
+        } openCards.splice(0, 2);
+    }
 };
