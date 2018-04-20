@@ -101,11 +101,21 @@ function turnCards() {
 function matchTest(){
     if (openCards.length == 2){
         if (openCards[0].firstChild.className == openCards[1].firstChild.className){
-            openCards[0].classList.remove('open', 'show'); openCards[0].classList.add('match');
-            openCards[1].classList.toggle('match'); openCards[1].classList.add('match');
+          match();
         } else {
-            openCards[0].classList.remove('open', 'show');
-            openCards[1].classList.remove('open', 'show');
+          noMatch();
         } openCards.splice(0, 2);
     }
+};
+
+function match() {
+  openCards[0].classList.remove('open', 'show');
+  openCards[0].classList.add('match');
+  openCards[1].classList.toggle('match');
+  openCards[1].classList.add('match');
+};
+
+function noMatch() {
+  openCards[0].classList.remove('open', 'show');
+  openCards[1].classList.remove('open', 'show');
 };
