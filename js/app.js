@@ -25,6 +25,7 @@ let openCards = [];
 let displayMoves = document.querySelector('.moves');
 let moves = 0;
 let matches = 0;
+const winningBox = document.querySelector('.win-box');
 
 /*
  * Display the cards on the page
@@ -118,6 +119,7 @@ function match() {
   openCards[1].classList.toggle('match');
   openCards[1].classList.add('match');
   matches += 1;
+  checkMatches();
 };
 
 /* Turn cards back over */
@@ -141,5 +143,11 @@ function removeDeck(){
   const currentDeck = document.querySelector('.deck');
   while (currentDeck.firstChild) {
   currentDeck.removeChild(currentDeck.firstChild);
+  }
+};
+
+function checkMatches() {
+  if (matches == 8){
+    winningBox.style.display = "block";
   }
 };
