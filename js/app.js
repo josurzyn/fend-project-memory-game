@@ -25,7 +25,8 @@ let openCards = [];
 let displayMoves = document.querySelector('.moves');
 let moves = 0;
 let matches = 0;
-const winningBox = document.querySelector('.win-box');
+const winningBox = document.querySelectorAll('.win-box');
+const close = document.getElementsByClassName('close');
 
 /*
  * Display the cards on the page
@@ -95,6 +96,7 @@ function turnCards() {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
       openCards.push(deck[i]);
+      matchTest();
     })
   }
 };
@@ -148,6 +150,13 @@ function removeDeck(){
 
 function checkMatches() {
   if (matches == 8){
-    winningBox.style.display = "block";
+    winningBox[0].style.display = "block";
+    closeBox();
   }
+};
+
+function closeBox(){
+  close[0].addEventListener('click', function(){
+    winningBox[0].style.display = "none";
+  });
 };
