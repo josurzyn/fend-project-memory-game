@@ -27,6 +27,8 @@ let moves = 0;
 let matches = 0;
 const winningBox = document.querySelectorAll('.win-box');
 const close = document.getElementsByClassName('close');
+
+/* Display cards on document load*/
 document.addEventListener('DOMContentLoaded', function(){
   displayCards();
 });
@@ -99,7 +101,7 @@ function turnCards() {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
       openCards.push(deck[i]);
-      matchTest();
+      setTimeout(matchTest(), 2000);
     })
   }
 };
@@ -108,9 +110,9 @@ function turnCards() {
 function matchTest(){
     if (openCards.length == 2){
         if (openCards[0].firstChild.className == openCards[1].firstChild.className){
-          match();
+          setTimeout(match(), 2000);
         } else {
-          noMatch();
+          setTimeout(noMatch(), 2000);
         } openCards.splice(0, 2);
         countMove();
     }
@@ -121,7 +123,7 @@ function matchTest(){
 function match() {
   openCards[0].classList.remove('open', 'show');
   openCards[0].classList.add('match');
-  openCards[1].classList.toggle('match');
+  openCards[1].classList.remove('open', 'show');
   openCards[1].classList.add('match');
   matches += 1;
   checkMatches();
