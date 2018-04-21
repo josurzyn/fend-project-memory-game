@@ -26,6 +26,8 @@ let displayMoves = document.querySelector('.moves');
 let moves = 0;
 let matches = 0;
 const winningBox = document.querySelectorAll('.win-box');
+const winningMessage = document.querySelector('.win-msg');
+const congrats = document.querySelector('.congrats');
 const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
 
@@ -167,7 +169,7 @@ function removeDeck(){
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
   if (matches == 8){
-    setTimeout(showWin, 1000);
+    setTimeout(showWin, 500);
     closeBox();
   }
 };
@@ -175,6 +177,9 @@ function checkMatches() {
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
+  const score = document.createElement('p');
+  score.innerHTML = 'You won in ' + moves + ' moves!';
+  congrats.appendChild(score);
 };
 
 function closeBox(){
