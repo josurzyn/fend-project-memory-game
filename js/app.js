@@ -187,4 +187,5 @@ function closeBox(){
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
   displayCards();
+  winningBox[0].style.display = "none";
 });
