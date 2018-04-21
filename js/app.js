@@ -27,6 +27,7 @@ let moves = 0;
 let matches = 0;
 const winningBox = document.querySelectorAll('.win-box');
 const close = document.getElementsByClassName('close');
+const restart = document.getElementsByClassName('restart');
 
 /* Display cards on document load*/
 document.addEventListener('DOMContentLoaded', function(){
@@ -55,6 +56,7 @@ function displayCards(){
   /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
+  resetMoves();
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -142,10 +144,16 @@ function noMatch() {
 function countMove() {
   moves += 1;
   if (moves == 1){
-    displayMoves.innerHTML= moves + " Move";
+    displayMoves.innerHTML = moves + " Move";
   } else {
     displayMoves.innerHTML = moves + " Moves";
   }
+};
+
+/* Reset move counter */
+function resetMoves(){
+  moves = 0;
+  displayMoves.innerHTML = moves + " Moves";
 };
 
 /* remove currently displayed deck */
@@ -158,7 +166,7 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 1){
+  if (matches == 8){
     setTimeout(showWin, 1000);
     closeBox();
   }
@@ -175,3 +183,8 @@ function closeBox(){
     setTimeout(displayCards, 500);
   });
 };
+
+for (let i = 0; i < restart.length; i++)
+  restart[i].addEventListener('click', function(){
+  displayCards();
+});
