@@ -30,6 +30,7 @@ const winningMessage = document.querySelector('.win-msg');
 const congrats = document.querySelector('.congrats');
 const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
+const stars = document.getElementsByClassName('fa fa-star');
 
 /* Display cards on document load*/
 document.addEventListener('DOMContentLoaded', function(){
@@ -150,6 +151,7 @@ function countMove() {
   } else {
     displayMoves.innerHTML = moves + " Moves";
   }
+  starRating();
 };
 
 /* Reset move counter */
@@ -168,7 +170,7 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 1){
+  if (matches == 8){
     setTimeout(showWin, 500);
     closeBox();
   }
@@ -188,8 +190,24 @@ function closeBox(){
   });
 };
 
+/* Add event listener to reset game on restart icons */
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
   displayCards();
   winningBox[0].style.display = "none";
 });
+
+/* Set star rating */
+function starRating(){
+  if (stars.length > 0){
+    if (moves > 19){
+      stars[0].className = "fa fa-star-o";
+    } else if (moves < 20 && moves > 14){
+      stars[1].className = "fa fa-star-o";
+    } else if (moves > 10){
+      stars[2].className = "fa fa-star-o";
+    } else {
+      console.log('No more stars to lose!');
+    }
+  };
+};
