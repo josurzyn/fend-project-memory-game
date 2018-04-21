@@ -101,7 +101,7 @@ function turnCards() {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
       openCards.push(deck[i]);
-      setTimeout(matchTest(), 2000);
+      matchTest();
     })
   }
 };
@@ -110,11 +110,10 @@ function turnCards() {
 function matchTest(){
     if (openCards.length == 2){
         if (openCards[0].firstChild.className == openCards[1].firstChild.className){
-          setTimeout(match(), 2000);
+            setTimeout(match, 250);
         } else {
-          setTimeout(noMatch(), 2000);
-        } openCards.splice(0, 2);
-        countMove();
+            setTimeout(noMatch, 1200);
+        }
     }
 };
 
@@ -127,12 +126,16 @@ function match() {
   openCards[1].classList.add('match');
   matches += 1;
   checkMatches();
+  openCards.splice(0, 2);
+  countMove();
 };
 
 /* Turn cards back over */
 function noMatch() {
-  openCards[0].classList.remove('open', 'show');
-  openCards[1].classList.remove('open', 'show');
+    openCards[0].classList.remove('open', 'show');
+    openCards[1].classList.remove('open', 'show');
+    openCards.splice(0, 2);
+    countMove();
 };
 
 /* Count and display moves */
@@ -153,6 +156,7 @@ function removeDeck(){
   }
 };
 
+/* Check total number of matches to see if cards remaining */
 function checkMatches() {
   if (matches == 8){
     winningBox[0].style.display = "block";
