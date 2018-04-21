@@ -156,16 +156,22 @@ function removeDeck(){
   }
 };
 
-/* Check total number of matches to see if cards remaining */
+/* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 8){
-    winningBox[0].style.display = "block";
+  if (matches == 1){
+    setTimeout(showWin, 1000);
     closeBox();
   }
+};
+
+/* Show winning box with score */
+function showWin(){
+  winningBox[0].style.display = "block";
 };
 
 function closeBox(){
   close[0].addEventListener('click', function(){
     winningBox[0].style.display = "none";
+    setTimeout(displayCards, 500);
   });
 };
