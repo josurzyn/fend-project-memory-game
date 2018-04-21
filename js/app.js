@@ -168,7 +168,7 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 8){
+  if (matches == 1){
     setTimeout(showWin, 500);
     closeBox();
   }
@@ -177,9 +177,8 @@ function checkMatches() {
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
-  const score = document.createElement('p');
-  score.innerHTML = 'You won in ' + moves + ' moves!';
-  congrats.appendChild(score);
+  const score = '<p>You won in ' + moves + ' moves!</p>';
+  congrats.insertAdjacentHTML('afterend', score);
 };
 
 function closeBox(){
