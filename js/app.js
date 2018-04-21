@@ -27,6 +27,9 @@ let moves = 0;
 let matches = 0;
 const winningBox = document.querySelectorAll('.win-box');
 const close = document.getElementsByClassName('close');
+document.addEventListener('DOMContentLoaded', function(){
+  displayCards();
+});
 
 /*
  * Display the cards on the page
