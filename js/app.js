@@ -34,6 +34,9 @@ let stars = document.getElementsByClassName('fa fa-star');
 let starsUl = document.getElementsByClassName('stars');
 let time = 0;
 let timer = 0;
+const timerSpan = document.getElementById('timer');
+let seconds = 0;
+let minutes = 0;
 
 /* Display cards on document load*/
 document.addEventListener('DOMContentLoaded', function(){
@@ -232,15 +235,26 @@ function addWinStars(){
 
 /* Start Timer */
 function startTimer(){
-  timer = setInterval(function(){
-    time++;
-    console.log(time);
-  }, 1000);
+  timer = setInterval(countTime, 1000);
 };
+
+function countTime(){
+    seconds++;
+    if (seconds == 60){
+        minutes++;
+        seconds=0;
+        if (minutes == 60){
+            minutes = 0;
+            seconds = 0;
+        }
+    }
+    console.log('Seconds: ' + seconds + ' Minutes: ' + minutes);
+}
 
 /* Stop timer */
 function stopTimer(){
   clearInterval(timer);
   timer = 0;
-  time = 0;
+  seconds = 0;
+  minutes = 0;
 };
