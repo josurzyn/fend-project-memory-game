@@ -203,9 +203,10 @@ function closeBox(){
 /* Add event listener to reset game on restart icons */
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
-  displayCards();
-  winningBox[0].style.display = "none";
-});
+    stopTimer();
+    displayCards();
+    winningBox[0].style.display = "none";
+  });
 
 /* Set star rating */
 function starRating(){
@@ -237,6 +238,9 @@ function startTimer(){
   }, 1000);
 };
 
+/* Stop timer */
 function stopTimer(){
   clearInterval(timer);
+  timer = 0;
+  time = 0;
 };
