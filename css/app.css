@@ -131,7 +131,7 @@ h1 {
     background-color: #fefefe;
     text-align: center;
     align-items: center;
-    margin: 35% auto; /* 15% from the top and centered */
+    margin:  20% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -161,15 +161,6 @@ h1 {
     list-style: none;
     display: inline-block;
     align-items: center;
-}
-
-/*.score-panel .stars {
     margin: 0;
     padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
 }
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;*/

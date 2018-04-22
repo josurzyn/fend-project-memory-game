@@ -97,17 +97,6 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-/* event listener that turns cards on click */
-
-/* Attempt using selecting deck and forEach loop
-function turnCards(){
-  deck.forEach(function(card){
-    card.addEventListener('click', function(){
-      card.classList.add('open', 'show')
-      });
-    })
-  };*/
-
 /* Event listener to turn cards and add to open list */
 function turnCards() {
   for (let i = 0; i < deck.length; i++) {
@@ -219,21 +208,6 @@ for (let i = 0; i < restart.length; i++)
     resetStars();
     winningBox[0].style.display = "none";
   });
-
-/* Set star rating
-function starRating(){
-  if (stars.length > 0){
-    if (moves == 20){
-      stars[0].className = "fa fa-star-o";
-    } else if (moves == 15){
-      stars[1].className = "fa fa-star-o";
-    } else if (moves == 1){
-      stars[2].className = "fa fa-star-o";
-    } else {
-      console.log('Keep playing!');
-    }
-  };
-};*/
 
 /* Set star rating */
 function starRating(){
