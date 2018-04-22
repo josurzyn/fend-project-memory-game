@@ -67,6 +67,7 @@ function displayCards(){
   turnCards();
   resetMoves();
   resetStars();
+  matches = 0;
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -167,19 +168,21 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 8){
+  if (matches == 1){
     stopTimer();
     setTimeout(showWin, 500);
     closeBox();
   }
 };
 
+/*TODO - remove end time and score on reset */
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
   addStars();
   let endTime = document.querySelector('#timer').innerText;
   congrats.insertAdjacentHTML('afterend', endTime);
+  congrats.appendChild(endTime);
   const score = '<p>You won in ' + moves + ' moves!</p>';
   congrats.insertAdjacentHTML('afterend', score);
 };
@@ -197,6 +200,7 @@ function closeBox(){
     winningBox[0].style.display = "none";
     setTimeout(displayCards, 500);
     resetStars();
+    timerSpan.innerHTML = ('00:00');
   });
 };
 
@@ -212,9 +216,9 @@ for (let i = 0; i < restart.length; i++)
 
 /* Set star rating */
 function starRating(){
-    if (moves == 16){
+    if (moves == 18){
       starChild[0].children[0].className = "fa fa-star-o";
-    } else if (moves == 13){
+    } else if (moves == 15){
       starChild[1].children[0].className = "fa fa-star-o";
     } else if (moves == 10){
       starChild[2].children[0].className = "fa fa-star-o";
