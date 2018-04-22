@@ -30,7 +30,10 @@ const winningMessage = document.querySelector('.win-msg');
 const congrats = document.querySelector('.congrats');
 const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
-const stars = document.getElementsByClassName('fa fa-star');
+let stars = document.getElementsByClassName('fa fa-star');
+let starsUl = document.getElementsByClassName('stars');
+let time = 0;
+let timer = 0;
 
 /* Display cards on document load*/
 document.addEventListener('DOMContentLoaded', function(){
@@ -60,6 +63,7 @@ function displayCards(){
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
   resetMoves();
+  startTimer();
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -170,7 +174,8 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 8){
+  if (matches == 1){
+    stopTimer();
     setTimeout(showWin, 500);
     closeBox();
   }
@@ -179,8 +184,13 @@ function checkMatches() {
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
-  const score = '<p>You won in ' + moves + ' moves!</p>';
+  let starLength = stars.length;
+  const score = '<p>You won in ' + moves + ' moves and with ' + starLength + ' stars!</p>';
   congrats.insertAdjacentHTML('afterend', score);
+  /*let starScore = document.getElementsByClassName('stars');
+  let finalStars = document.createElement('p');
+  finalStars.innerHTML = starScore;
+  congrats.appendChild(finalStars);*/
 };
 
 function closeBox(){
@@ -200,14 +210,33 @@ for (let i = 0; i < restart.length; i++)
 /* Set star rating */
 function starRating(){
   if (stars.length > 0){
-    if (moves > 19){
+    if (moves == 20){
       stars[0].className = "fa fa-star-o";
-    } else if (moves < 20 && moves > 14){
+    } else if (moves == 15){
       stars[1].className = "fa fa-star-o";
-    } else if (moves > 10){
+    } else if (moves == 1){
       stars[2].className = "fa fa-star-o";
     } else {
-      console.log('No more stars to lose!');
+      console.log('Keep playing!');
     }
   };
+};
+
+/* Adds final star rating to winning message - not working correctly
+function addWinStars(){
+  const starsUlDup = starsUl;
+  starsUlDup[0].classList.add('score-panel');
+  congrats.appendChild(starsUlDup[0]);
+};*/
+
+/* Start Timer */
+function startTimer(){
+  timer = setInterval(function(){
+    time++;
+    console.log(time);
+  }, 1000);
+};
+
+function stopTimer(){
+  clearInterval(timer);
 };
