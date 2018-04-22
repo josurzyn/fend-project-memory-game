@@ -108,6 +108,10 @@ h1 {
     cursor: pointer;
 }
 
+#timer {
+    margin: 35px;
+}
+
 /*
  * Styles for winning pop-up box
  */
@@ -157,6 +161,10 @@ h1 {
 }
 
 /* Style for Star Rating */
+.star-rating {
+  padding: 0;
+}
+
 .star-rating li {
     list-style: none;
     display: inline-block;
