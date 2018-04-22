@@ -186,16 +186,20 @@ function checkMatches() {
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
-  let starLength = stars.length;
-  const score = '<p>You won in ' + moves + ' moves and with ' + starLength + ' stars!</p>';
-  congrats.insertAdjacentHTML('afterend', score);
+  addStars();
   let endTime = document.querySelector('#timer').innerText;
   congrats.insertAdjacentHTML('afterend', endTime);
-  /*let starScore = document.getElementsByClassName('stars');
-  let finalStars = document.createElement('p');
-  finalStars.innerHTML = starScore;
-  congrats.appendChild(finalStars);*/
+  const score = '<p>You won in ' + moves + ' moves!</p>';
+  congrats.insertAdjacentHTML('afterend', score);
 };
+
+/* Adds num of stars to winning message */
+function addStars(){
+  let rating = document.createElement('ul');
+  rating.innerHTML = starsUl[0].innerHTML;
+  rating.className = 'star-rating';
+  congrats.appendChild(rating);
+}
 
 function closeBox(){
   close[0].addEventListener('click', function(){
@@ -226,13 +230,6 @@ function starRating(){
     }
   };
 };
-
-/* Adds final star rating to winning message - not working correctly
-function addWinStars(){
-  const starsUlDup = starsUl;
-  starsUlDup[0].classList.add('score-panel');
-  congrats.appendChild(starsUlDup[0]);
-};*/
 
 /* Start Timer */
 function startTimer(){

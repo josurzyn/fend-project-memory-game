@@ -123,12 +123,14 @@ h1 {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
 }
 
 /* Modal Content/Box */
 .win-msg {
     background-color: #fefefe;
     text-align: center;
+    align-items: center;
     margin: 35% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -153,3 +155,21 @@ h1 {
 .restart {
   cursor: pointer;
 }
+
+/* Style for Star Rating */
+.star-rating li {
+    list-style: none;
+    display: inline-block;
+    align-items: center;
+}
+
+/*.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;*/
