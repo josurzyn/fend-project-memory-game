@@ -67,7 +67,6 @@ function displayCards(){
   turnCards();
   resetMoves();
   resetStars();
-  startTimer();
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -103,6 +102,7 @@ function turnCards() {
     deck[i].addEventListener('click', function(){
       this.classList.add('open', 'show');
       openCards.push(deck[i]);
+      startTimer();
       matchTest();
     })
   }
@@ -224,7 +224,9 @@ function starRating(){
 
 /* Start Timer */
 function startTimer(){
-  timer = setInterval(countTime, 1000);
+  if (timer == 0){
+    timer = setInterval(countTime, 1000);
+  }
 };
 
 function countTime(){
