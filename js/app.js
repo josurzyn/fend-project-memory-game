@@ -167,7 +167,7 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 1){
+  if (matches == 8){
     stopTimer();
     setTimeout(showWin, 500);
     closeBox();
@@ -204,6 +204,7 @@ function closeBox(){
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
     stopTimer();
+    timerSpan.innerHTML = ('00:00');
     displayCards();
     resetStars();
     winningBox[0].style.display = "none";
@@ -211,11 +212,11 @@ for (let i = 0; i < restart.length; i++)
 
 /* Set star rating */
 function starRating(){
-    if (moves == 5){
+    if (moves == 16){
       starChild[0].children[0].className = "fa fa-star-o";
-    } else if (moves == 3){
+    } else if (moves == 13){
       starChild[1].children[0].className = "fa fa-star-o";
-    } else if (moves == 1){
+    } else if (moves == 10){
       starChild[2].children[0].className = "fa fa-star-o";
     } else {
       console.log('Keep playing!');
