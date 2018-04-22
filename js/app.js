@@ -248,6 +248,7 @@ function countTime(){
             seconds = 0;
         }
     }
+    timerSpan.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds < 10 ? "0" + seconds : seconds);
     console.log('Seconds: ' + seconds + ' Minutes: ' + minutes);
 }
 
