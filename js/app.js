@@ -32,7 +32,6 @@ const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
 let stars = document.getElementsByClassName('fa fa-star');
 let starsUl = document.getElementsByClassName('stars');
-let time = 0;
 let timer = 0;
 const timerSpan = document.getElementById('timer');
 let seconds = 0;
@@ -190,6 +189,8 @@ function showWin(){
   let starLength = stars.length;
   const score = '<p>You won in ' + moves + ' moves and with ' + starLength + ' stars!</p>';
   congrats.insertAdjacentHTML('afterend', score);
+  let endTime = document.querySelector('#timer').innerText;
+  congrats.insertAdjacentHTML('afterend', endTime);
   /*let starScore = document.getElementsByClassName('stars');
   let finalStars = document.createElement('p');
   finalStars.innerHTML = starScore;
@@ -248,8 +249,8 @@ function countTime(){
             seconds = 0;
         }
     }
-    timerSpan.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds < 10 ? "0" + seconds : 
-}
+    timerSpan.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds < 10 ? "0" + seconds : seconds);
+};
 
 /* Stop timer */
 function stopTimer(){
