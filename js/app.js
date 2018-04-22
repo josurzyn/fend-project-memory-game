@@ -32,6 +32,7 @@ const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
 let stars = document.getElementsByClassName('fa fa-star');
 let starsUl = document.getElementsByClassName('stars');
+let starChild = starsUl[0].children;
 let timer = 0;
 const timerSpan = document.getElementById('timer');
 let seconds = 0;
@@ -65,6 +66,7 @@ function displayCards(){
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
   resetMoves();
+  resetStars();
   startTimer();
 };
 
@@ -205,6 +207,7 @@ function closeBox(){
   close[0].addEventListener('click', function(){
     winningBox[0].style.display = "none";
     setTimeout(displayCards, 500);
+    resetStars();
   });
 };
 
@@ -213,10 +216,11 @@ for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
     stopTimer();
     displayCards();
+    resetStars();
     winningBox[0].style.display = "none";
   });
 
-/* Set star rating */
+/* Set star rating
 function starRating(){
   if (stars.length > 0){
     if (moves == 20){
@@ -229,6 +233,19 @@ function starRating(){
       console.log('Keep playing!');
     }
   };
+};*/
+
+/* Set star rating */
+function starRating(){
+    if (moves == 5){
+      starChild[0].children[0].className = "fa fa-star-o";
+    } else if (moves == 3){
+      starChild[1].children[0].className = "fa fa-star-o";
+    } else if (moves == 1){
+      starChild[2].children[0].className = "fa fa-star-o";
+    } else {
+      console.log('Keep playing!');
+    }
 };
 
 /* Start Timer */
@@ -256,3 +273,9 @@ function stopTimer(){
   seconds = 0;
   minutes = 0;
 };
+
+function resetStars(){
+  for (let i = 0; i < 3; i++){
+    starChild[i].children[0].className = 'fa fa-star';
+  }
+}
