@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+
 let cards = [
   'diamond',
   'diamond',
@@ -30,7 +31,6 @@ const winningMessage = document.querySelector('.win-msg');
 const congrats = document.querySelector('.congrats');
 const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
-/*let stars = document.getElementsByClassName('fa fa-star');*/
 let starsUl = document.getElementsByClassName('stars');
 let starChild = starsUl[0].children;
 let timer = 0;
@@ -60,17 +60,11 @@ function displayCards(){
     randomCard.innerHTML = '<i class="fa fa-' + card + '"</i>';
     deckFragment.appendChild(randomCard);
   });
-    /*remove current deck */
   removeDeck();
   /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
   reset();
-  /*resetMoves();
-  resetStars();
-  matches = 0;
-  timerSpan.innerHTML = "00:00";
-  congrats.innerHTML = "";*/
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -87,7 +81,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -127,7 +120,6 @@ function matchTest(){
     }
 };
 
-
 /* Lock cards in matched position */
 function match() {
   openCards[0].classList.remove('open', 'show');
@@ -159,13 +151,7 @@ function countMove() {
   starRating();
 };
 
-/* Reset move counter
-function resetMoves(){
-  moves = 0;
-  displayMoves.innerHTML = moves + " Moves";
-}; */
-
-/* remove currently displayed deck */
+/* Remove currently displayed deck */
 function removeDeck(){
   const currentDeck = document.querySelector('.deck');
   while (currentDeck.firstChild) {
@@ -175,14 +161,13 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 1){
+  if (matches == 8){
     stopTimer();
     setTimeout(showWin, 500);
     closeBox();
   }
 };
 
-/*TODO - remove end time and score on reset */
 /* Show winning box with score */
 function showWin(){
   winningBox[0].style.display = "block";
@@ -206,7 +191,6 @@ function closeBox(){
   close[0].addEventListener('click', function(){
     winningBox[0].style.display = "none";
     setTimeout(displayCards, 500);
-    /*resetStars();*/
   });
 };
 
@@ -214,9 +198,7 @@ function closeBox(){
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
     stopTimer();
-    /*timerSpan.innerHTML = ('00:00');*/
     displayCards();
-    /*resetStars();*/
     winningBox[0].style.display = "none";
   });
 
@@ -228,9 +210,7 @@ function starRating(){
       starChild[1].children[0].className = "fa fa-star-o";
     } else if (moves == 10){
       starChild[2].children[0].className = "fa fa-star-o";
-    } /*else {
-      console.log('Keep playing!');
-    }*/
+    }
 };
 
 /* Start Timer */
@@ -262,12 +242,6 @@ function stopTimer(){
   minutes = 0;
 };
 
-/*function resetStars(){
-  for (let i = 0; i < 3; i++){
-    starChild[i].children[0].className = 'fa fa-star';
-  }
-}*/
-
 /* Reset game stats for new game */
 function reset(){
   for (let i = 0; i < 3; i++){
@@ -278,4 +252,4 @@ function reset(){
   matches = 0;
   timerSpan.innerHTML = "00:00";
   congrats.innerHTML = "";
-}
+};
