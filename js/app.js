@@ -181,10 +181,9 @@ function showWin(){
   winningBox[0].style.display = "block";
   addStars();
   let endTime = document.querySelector('#timer').innerText;
-  congrats.insertAdjacentHTML('afterend', endTime);
-  congrats.appendChild(endTime);
+  congrats.insertAdjacentHTML('beforeend', endTime);
   const score = '<p>You won in ' + moves + ' moves!</p>';
-  congrats.insertAdjacentHTML('afterend', score);
+  congrats.insertAdjacentHTML('beforeend', score);
 };
 
 /* Adds num of stars to winning message */
@@ -195,6 +194,7 @@ function addStars(){
   congrats.appendChild(rating);
 }
 
+/* Close winning box and reset display */
 function closeBox(){
   close[0].addEventListener('click', function(){
     winningBox[0].style.display = "none";
