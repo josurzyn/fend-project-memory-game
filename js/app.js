@@ -65,7 +65,7 @@ function displayCards(){
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
   reset();
-};
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -104,10 +104,10 @@ function turnCards() {
         openCards.push(deck[i]);
         startTimer();
         matchTest();
-      }
-    })
-  }
-};
+      };
+    });
+  };
+}
 
 /* Check for card match */
 function matchTest(){
@@ -118,7 +118,7 @@ function matchTest(){
             setTimeout(noMatch, 1200);
         }
     }
-};
+}
 
 /* Lock cards in matched position */
 function match() {
@@ -144,9 +144,9 @@ function noMatch() {
 function countMove() {
   moves += 1;
   if (moves == 1){
-    displayMoves.innerHTML = moves + " Move";
+    displayMoves.innerHTML = moves + ' Move';
   } else {
-    displayMoves.innerHTML = moves + " Moves";
+    displayMoves.innerHTML = moves + ' Moves';
   }
   starRating();
 };
@@ -170,7 +170,7 @@ function checkMatches() {
 
 /* Show winning box with score */
 function showWin(){
-  winningBox[0].style.display = "block";
+  winningBox[0].style.display = 'block';
   addStars();
   let endTime = document.querySelector('#timer').innerText;
   congrats.insertAdjacentHTML('beforeend', endTime);
@@ -189,7 +189,7 @@ function addStars(){
 /* Close winning box and reset display */
 function closeBox(){
   close[0].addEventListener('click', function(){
-    winningBox[0].style.display = "none";
+    winningBox[0].style.display = 'none';
     setTimeout(displayCards, 500);
   });
 };
@@ -199,17 +199,17 @@ for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
     stopTimer();
     displayCards();
-    winningBox[0].style.display = "none";
+    winningBox[0].style.display = 'none';
   });
 
 /* Set star rating */
 function starRating(){
     if (moves == 18){
-      starChild[0].children[0].className = "fa fa-star-o";
+      starChild[0].children[0].className = 'fa fa-star-o';
     } else if (moves == 15){
-      starChild[1].children[0].className = "fa fa-star-o";
+      starChild[1].children[0].className = 'fa fa-star-o';
     } else if (moves == 10){
-      starChild[2].children[0].className = "fa fa-star-o";
+      starChild[2].children[0].className = 'fa fa-star-o';
     }
 };
 
@@ -231,7 +231,7 @@ function countTime(){
             seconds = 0;
         }
     }
-    timerSpan.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds < 10 ? "0" + seconds : seconds);
+    timerSpan.innerHTML = (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
 };
 
 /* Stop timer */
@@ -248,8 +248,8 @@ function reset(){
     starChild[i].children[0].className = 'fa fa-star';
   };
   moves = 0;
-  displayMoves.innerHTML = moves + " Moves";
+  displayMoves.innerHTML = moves + ' Moves';
   matches = 0;
-  timerSpan.innerHTML = "00:00";
-  congrats.innerHTML = "";
+  timerSpan.innerHTML = '00:00';
+  congrats.innerHTML = '';
 };
