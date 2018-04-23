@@ -161,7 +161,7 @@ function removeDeck(){
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
-  if (matches == 8){
+  if (matches == 1){
     stopTimer();
     setTimeout(showWin, 500);
     closeBox();
