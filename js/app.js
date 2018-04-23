@@ -104,9 +104,9 @@ function turnCards() {
         openCards.push(deck[i]);
         startTimer();
         matchTest();
-      };
+      }
     });
-  };
+  }
 }
 
 /* Check for card match */
@@ -130,7 +130,7 @@ function match() {
   checkMatches();
   openCards.splice(0, 2);
   countMove();
-};
+}
 
 /* Turn cards back over */
 function noMatch() {
@@ -138,7 +138,7 @@ function noMatch() {
     openCards[1].classList.remove('open', 'show');
     openCards.splice(0, 2);
     countMove();
-};
+}
 
 /* Count and display moves */
 function countMove() {
@@ -149,7 +149,7 @@ function countMove() {
     displayMoves.innerHTML = moves + ' Moves';
   }
   starRating();
-};
+}
 
 /* Remove currently displayed deck */
 function removeDeck(){
@@ -157,7 +157,7 @@ function removeDeck(){
   while (currentDeck.firstChild) {
   currentDeck.removeChild(currentDeck.firstChild);
   }
-};
+}
 
 /* Check total number of matches to see if cards remaining*/
 function checkMatches() {
@@ -166,7 +166,7 @@ function checkMatches() {
     setTimeout(showWin, 500);
     closeBox();
   }
-};
+}
 
 /* Show winning box with score */
 function showWin(){
@@ -176,7 +176,7 @@ function showWin(){
   congrats.insertAdjacentHTML('beforeend', endTime);
   const score = '<p>You won in ' + moves + ' moves!</p>';
   congrats.insertAdjacentHTML('beforeend', score);
-};
+}
 
 /* Adds num of stars to winning message */
 function addStars(){
@@ -192,7 +192,7 @@ function closeBox(){
     winningBox[0].style.display = 'none';
     setTimeout(displayCards, 500);
   });
-};
+}
 
 /* Add event listener to reset game on restart icons */
 for (let i = 0; i < restart.length; i++)
@@ -211,14 +211,14 @@ function starRating(){
     } else if (moves == 10){
       starChild[2].children[0].className = 'fa fa-star-o';
     }
-};
+}
 
 /* Start Timer */
 function startTimer(){
   if (timer == 0){
     timer = setInterval(countTime, 1000);
   }
-};
+}
 
 /* Count and display time in seconds and minutes */
 function countTime(){
@@ -232,7 +232,7 @@ function countTime(){
         }
     }
     timerSpan.innerHTML = (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
-};
+}
 
 /* Stop timer */
 function stopTimer(){
@@ -240,7 +240,7 @@ function stopTimer(){
   timer = 0;
   seconds = 0;
   minutes = 0;
-};
+}
 
 /* Reset game stats for new game */
 function reset(){
@@ -252,4 +252,4 @@ function reset(){
   matches = 0;
   timerSpan.innerHTML = '00:00';
   congrats.innerHTML = '';
-};
+}
