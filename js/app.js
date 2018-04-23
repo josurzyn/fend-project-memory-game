@@ -104,10 +104,14 @@ function shuffle(array) {
 function turnCards() {
   for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
-      this.classList.add('open', 'show');
-      openCards.push(deck[i]);
-      startTimer();
-      matchTest();
+      if ((deck[i].classList.contains('open')) || (openCards.length == 2)){
+        event.preventDefault();
+      } else {
+        this.classList.add('open', 'show');
+        openCards.push(deck[i]);
+        startTimer();
+        matchTest();
+      }
     })
   }
 };
