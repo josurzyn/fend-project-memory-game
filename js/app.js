@@ -30,7 +30,7 @@ const winningMessage = document.querySelector('.win-msg');
 const congrats = document.querySelector('.congrats');
 const close = document.getElementsByClassName('close');
 const restart = document.getElementsByClassName('restart');
-let stars = document.getElementsByClassName('fa fa-star');
+/*let stars = document.getElementsByClassName('fa fa-star');*/
 let starsUl = document.getElementsByClassName('stars');
 let starChild = starsUl[0].children;
 let timer = 0;
@@ -65,9 +65,12 @@ function displayCards(){
   /*add new deck fragment*/
   document.querySelector('.deck').appendChild(deckFragment);
   turnCards();
-  resetMoves();
+  reset();
+  /*resetMoves();
   resetStars();
   matches = 0;
+  timerSpan.innerHTML = "00:00";
+  congrats.innerHTML = "";*/
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -152,11 +155,11 @@ function countMove() {
   starRating();
 };
 
-/* Reset move counter */
+/* Reset move counter
 function resetMoves(){
   moves = 0;
   displayMoves.innerHTML = moves + " Moves";
-};
+}; */
 
 /* remove currently displayed deck */
 function removeDeck(){
@@ -199,8 +202,7 @@ function closeBox(){
   close[0].addEventListener('click', function(){
     winningBox[0].style.display = "none";
     setTimeout(displayCards, 500);
-    resetStars();
-    timerSpan.innerHTML = ('00:00');
+    /*resetStars();*/
   });
 };
 
@@ -208,9 +210,9 @@ function closeBox(){
 for (let i = 0; i < restart.length; i++)
   restart[i].addEventListener('click', function(){
     stopTimer();
-    timerSpan.innerHTML = ('00:00');
+    /*timerSpan.innerHTML = ('00:00');*/
     displayCards();
-    resetStars();
+    /*resetStars();*/
     winningBox[0].style.display = "none";
   });
 
@@ -222,9 +224,9 @@ function starRating(){
       starChild[1].children[0].className = "fa fa-star-o";
     } else if (moves == 10){
       starChild[2].children[0].className = "fa fa-star-o";
-    } else {
+    } /*else {
       console.log('Keep playing!');
-    }
+    }*/
 };
 
 /* Start Timer */
@@ -234,6 +236,7 @@ function startTimer(){
   }
 };
 
+/* Count and display time in seconds and minutes */
 function countTime(){
     seconds++;
     if (seconds == 60){
@@ -255,8 +258,20 @@ function stopTimer(){
   minutes = 0;
 };
 
-function resetStars(){
+/*function resetStars(){
   for (let i = 0; i < 3; i++){
     starChild[i].children[0].className = 'fa fa-star';
   }
+}*/
+
+/* Reset game stats for new game */
+function reset(){
+  for (let i = 0; i < 3; i++){
+    starChild[i].children[0].className = 'fa fa-star';
+  };
+  moves = 0;
+  displayMoves.innerHTML = moves + " Moves";
+  matches = 0;
+  timerSpan.innerHTML = "00:00";
+  congrats.innerHTML = "";
 }
