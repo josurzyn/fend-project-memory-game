@@ -205,10 +205,8 @@ for (let i = 0; i < restart.length; i++)
 /* Set star rating */
 function starRating(){
     if (moves == 18){
-      starChild[0].children[0].className = 'fa fa-star-o';
-    } else if (moves == 15){
       starChild[1].children[0].className = 'fa fa-star-o';
-    } else if (moves == 10){
+    } else if (moves == 12){
       starChild[2].children[0].className = 'fa fa-star-o';
     }
 }
